@@ -1,0 +1,17 @@
+<CiscoIPPhoneInput>
+   <Title>Send Location Update</Title>
+   <Prompt>Where is here?</Prompt>
+   <URL>http://pbxadmin.uah.edu/findmyipphone/iamhere?device=#DEVICENAME#</URL>
+   <InputItem>
+    <DisplayName>Room number?</DisplayName>
+    <QueryStringParam>room</QueryStringParam>
+    <DefaultValue></DefaultValue>
+    <InputFlags>N</InputFlags>
+   </InputItem>
+   <InputItem>
+    <DisplayName>Letter?</DisplayName>
+    <QueryStringParam>roomletter</QueryStringParam>
+    <DefaultValue></DefaultValue>
+    <InputFlags>U</InputFlags>
+   </InputItem>
+</CiscoIPPhoneInput>
