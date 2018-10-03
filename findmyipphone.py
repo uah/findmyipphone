@@ -88,9 +88,11 @@ def find():
 @app.route('/flare')
 def flare():
   devicename = request.args.get('device', default = 'Unknown', type = str)
+  phone = getUpstreamSwitchInfo(request.remote_addr)
+  stripped_port = re.sub("[^0-9\/]", "", phone['switch_port'])
   result = render_template('text.j2', text='You have successfully sent a support flare from {}'.format(devicename), title='Thanks!')
   print("Flare from {}".format(devicename))
-  syslog.syslog("Flare from {}".format(devicename))
+  syslog.syslog("Flare from {} on {} port {}".format(devicename, phone['switch_name'], stripped_port))
   return Response(result,mimetype='text/xml')
 
 @app.route('/iamhere')
